@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar color="theme-color">
+    <ion-back-button color="white-button"></ion-back-button>
+    <ion-title>Chi tiết</ion-title>
+    <ion-buttons slot="end" [routerLink]="['/management', house.username]">
+      <ion-button>
+        <ion-icon name="construct" slot="icon-only" color="white-button"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div id="container-detail">
+    <div class="img-slide">
+      <ion-slides pager [options]="slideOpts">
+        <ion-slide *ngFor="let i of house.img">
+          <img src={{i}}>
+        </ion-slide>
+      </ion-slides>
+    </div>
+    <div class="img-list">
+      <ion-item *ngFor="let i of house.img">
+        <img src={{i}}>
+      </ion-item>
+    </div>
+    <div id="content-info">
+      <p class="title">{{house.title}}<p>
+          <!-- <ion-buttons fill="clear" class="ion-justify-content-center" (click)="openMap()">
+            <ion-button>
+              <ion-icon name="eye-outline" color="theme-color"></ion-icon>
+              <i color="theme-color">Xem trên bản đồ</i>
+            </ion-button>
+          </ion-buttons> -->
+          <p class="font-large">
+            <strong>
+              <ion-text color="danger">Giá: {{house.price}}</ion-text>
+            </strong>
+          </p>
+          <p><ion-text color="medium">Thời gian đăng: {{house.datePost}}</ion-text></p>
+          <p>
+            <ion-icon name="location-outline" class="icon-margin"></ion-icon>Địa chỉ: {{house.addressDetail}}
+          </p>
+          <p><strong>Mô tả: </strong>{{house.description}}</p>
+          <p><strong>Thông tin:</strong></p>
+          <p>
+            <ion-icon name="home-outline" slot="icon-only" class="icon-margin"></ion-icon>Diện tích: {{house.area}}
+          </p>
+          <p>
+            <ion-icon src="../assets/icon/furniture.svg" slot="icon-only" class="icon-margin"></ion-icon>Nội thất:
+            {{house.furniture}}
+          </p>
+          <p>
+            <ion-icon src="../assets/icon/elevator.svg" slot="icon-only" class="icon-margin"></ion-icon>Tầng số:
+            {{house.numFloor}}
+          </p>
+          <p>
+            <ion-icon src="../assets/icon/room-key.svg" slot="icon-only" class="icon-margin"></ion-icon>Phòng số:
+            {{house.numRoom}}
+          </p>
+          <p>
+            <ion-icon src="../assets/icon/toilet.svg" slot="icon-only" class="icon-margin"></ion-icon>Số phòng vệ sinh:
+            {{house.numToilet}}
+          </p>
+          <p>
+            <ion-icon src="../assets/icon/bedroom.svg" slot="icon-only" class="icon-margin"></ion-icon>Số phòng ngủ:
+            {{house.numBedroom}}
+          </p>
+          <p>
+            <ion-icon src="../assets/icon/door.svg" slot="icon-only" class="icon-margin"></ion-icon>Hướng cửa chính:
+            {{house.direct}}
+          </p>
+          <p>
+            <ion-icon src="../assets/icon/money.svg" slot="icon-only" class="icon-margin"></ion-icon>Tiền cọc:
+            {{house.deposit}}
+          </p>
+          <p *ngIf="house.project != 'Không'; elseBlock">
+            <ion-icon src="../assets/icon/litigation.svg" slot="icon-only" class="icon-margin"></ion-icon>Giấy tờ pháp lý:
+            {{house.legal}}
+          </p>
+          <p><strong>Điện thoại: </strong>
+            <ion-text>{{numberPhone}}</ion-text>
+          </p>
+          <p><strong>Người đăng: </strong>{{name}}</p>
+          <br />
+          <br />
+    </div>
+  </div>
+</ion-content>
+
+<ion-row>
+  <ion-col>
+    <ion-button expand="full" color="theme-color" (click)="onClick('accept')" [routerLink]="['/admin/param', house.id]">
+      <!-- <ion-icon name="eye" class="ion-margin-end"></ion-icon> -->
+      <ion-text>Duyệt tin</ion-text>
+    </ion-button>
+  </ion-col>
+  <ion-col>
+    <ion-button expand="full" color="white-color" (click)="onClick('decline')">
+      <!-- <ion-icon name="eye-off" color="theme-color" class="ion-margin-end"></ion-icon> -->
+      <ion-text color="theme-color">Loại bỏ tin</ion-text>
+    </ion-button>
+  </ion-col>
+</ion-row>

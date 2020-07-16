@@ -1,0 +1,8 @@
+{
+  "name": "house-hunter-app",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

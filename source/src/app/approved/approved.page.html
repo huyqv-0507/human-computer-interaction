@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar color="theme-color">
+    <ion-title color="white-button">Đã duyệt</ion-title>
+    <ion-buttons slot="end" (click)="presentPopover($event)">
+      <ion-button>
+        <img id="profile" [src]="user.img" />
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-divider>
+    <ion-label>Bộ lọc</ion-label>
+  </ion-item-divider>
+  <ion-item class="content">
+    <div id="box">
+      <ion-label class="align" style="color: rgb(90, 86, 86)">Trạng thái</ion-label>
+      <ion-select value="active" class="align2" [(ngModel)]="statusSelected" cancelText="Hủy" okText="Áp dụng"
+        (ionChange)="onChangeStatus()">
+        <ion-select-option value="active">Tất cả</ion-select-option>
+        <ion-select-option value="show">Hiện</ion-select-option>
+        <ion-select-option value="hint">Đã ẩn</ion-select-option>
+      </ion-select>
+    </div>
+  </ion-item>
+  <ion-item class="content">
+    <div id="box">
+      <ion-label class="align" style="color: rgb(90, 86, 86)">Sắp xếp</ion-label>
+      <ion-select value="active" class="align2" [(ngModel)]="timeSelected" cancelText="Hủy" okText="Áp dụng"
+        (ionChange)="onChangeTime()">
+        <ion-select-option value="active">Mới nhất</ion-select-option>
+        <ion-select-option value="inactive">Cũ nhất</ion-select-option>
+      </ion-select>
+    </div>
+  </ion-item>
+
+  <br />
+  <ion-item-divider>
+    <ion-label>Danh sách tin</ion-label>
+  </ion-item-divider>
+  <div *ngIf="listHouse.length > 0; else elseBlock">
+    <ng-container *ngFor="let item of listHouse; let i= index">
+      <br />
+      <br />
+      <div class="border">
+        <div id="desc">
+          <ion-text>{{item.title.toLocaleUpperCase()}}</ion-text>
+          <br />
+          <br />
+          <ion-note><span>Giá: {{item.price}}</span></ion-note>
+          <br />
+          <ion-note id="note"><i>{{item.address}}</i></ion-note>
+        </div>
+        <br />
+        <div id="img">
+          <div [routerLink]="['/approved-detail', item.id]"> <img [src]="item.img[0]" /></div>
+          <!-- <ion-button (click)="changeStatus(i)" class="decline">Ẩn tin</ion-button> -->
+        </div>
+        <hr />
+      </div>
+    </ng-container>
+  </div>
+  <ng-template #elseBlock>
+    <div id="result">
+      <h5>Không có kết quả nào phù hợp!</h5>
+    </div>
+  </ng-template>
+</ion-content>
+
+<ion-footer>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button [routerLink]="['/admin']">
+      <ion-icon name="newspaper"></ion-icon>
+      <ion-text color="toolbar-background">Duyệt tin</ion-text>
+    </ion-tab-button>
+    <ion-tab-button [routerLink]="['/management']">
+      <ion-icon name="construct"></ion-icon>
+      <ion-text>Tài khoản</ion-text>
+    </ion-tab-button>
+    <!-- <ion-tab-button [routerLink]="['/blocked']">
+      <ion-icon name="eye-off"></ion-icon>
+      <ion-text>Đã ẩn</ion-text>
+    </ion-tab-button> -->
+    <ion-tab-button [routerLink]="['/approved']">
+      <ion-icon name="checkmark-circle" color="active-tab"></ion-icon>
+      <ion-text>Đã duyệt</ion-text>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>

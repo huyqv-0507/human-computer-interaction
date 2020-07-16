@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar class="toolbar-header" color="theme-color">
+    <ion-back-button color="white-button"></ion-back-button>
+    <ion-title>Thông tin tài khoản</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item id="item-top">
+    <p><b>Họ tên: </b> {{user.fullName.toUpperCase()}}</p>
+  </ion-item>
+  <ion-item>
+    <p><b>Tên đăng nhập: </b>{{user.username}}</p>
+  </ion-item>
+  <ion-item>
+    <p><b>Địa chỉ: </b>{{user.address}}</p>
+  </ion-item>
+  <ion-item>
+    <p><b>Số điện thoại: </b>{{user.phone1}}</p>
+  </ion-item>
+  <ion-item *ngIf="user.phone2 === ''; else elseBlock">
+    <p><b>Số điện thoại dự phòng: </b>Chưa thiết lập</p>
+  </ion-item>
+  <ng-template #elseBlock>
+    <ion-item>
+      <p><b>Số điện thoại dự phòng: </b>{{user.phone2}}</p>
+    </ion-item>
+  </ng-template>
+  <ion-item *ngIf="user.role != 2; else elseBlock2">
+    <p><b>Vai trò: </b>{{user.role == 1 ? "Chủ nhà" : "Khách"}}</p>
+  </ion-item>
+  <ng-template #elseBlock2>
+    <ion-item>
+      <p><b>Vai trò: </b>{{user.role == 2 ? "Quản trị viên" : ""}}</p>
+    </ion-item>
+  </ng-template>
+  <ion-item >
+    <p><b>Trạng thái tài khoản: </b>{{user.status === true ? "Đang hoạt động" : "Đã khóa"}}</p>
+  </ion-item>
+  <ion-item *ngIf="!user.status">  <p><b>Lý do bị khóa: </b>{{user.reason}}</p></ion-item>
+  <ion-item *ngIf="!user.status">  <p><b>Người khóa: </b>{{user.actor}}</p></ion-item>
+  <ion-item *ngIf="!user.status">  <p><b>Ngày khóa: </b>{{user.dateBlock}}</p></ion-item>
+</ion-content>

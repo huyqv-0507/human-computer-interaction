@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar class="toolbar-header" color="theme-color">
+    <ion-input placeholder="Tìm nhà, căn hộ..." color="white-button" [(ngModel)]="searchValue">
+    </ion-input>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/tenant/search', searchValue]">
+        <ion-icon name="search" slot="icon-only" color="white-button">
+        </ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end" *ngIf="notUser; else elseBlock">
+      <ion-button [routerLink]="['./login']">
+        <ion-icon name="person-circle-outline" slot="icon-only" color="white-button"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ng-template #elseBlock>
+      <ion-buttons slot="end" (click)="presentPopover($event)">
+        <ion-button>
+          <img id="img1" [src]="user.img" />
+        </ion-button>
+      </ion-buttons>
+    </ng-template>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item-divider>
+    <ion-label>Lưu gần đây</ion-label>
+  </ion-item-divider>
+  <ng-container *ngFor="let item of listHouse">
+    <br />
+    <br />
+    <div>
+      <div id="desc">
+        <ion-text>{{item.title.toLocaleUpperCase()}}</ion-text>
+        <br />
+        <br />
+        <ion-note><span>Giá: {{item.price}}</span></ion-note>
+        <br />
+        <ion-note id="note"><i>{{item.address}}</i></ion-note>
+      </div>
+      <br />
+      <div id="img">
+        <img [src]="item.img[0]" />
+        <ion-button id="button" [routerLink]="['/tenant/', item.id, statusFrom]">Xem chi tiết</ion-button>
+      </div>
+    </div>
+    <hr />
+  </ng-container>
+</ion-content>

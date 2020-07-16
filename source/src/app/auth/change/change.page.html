@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="theme-color">
+    <ion-back-button color="white-button"></ion-back-button>
+    <ion-title>Đổi mật khẩu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item id="head">
+      <ion-input type="password" placeholder="Mật khẩu mới" [(ngModel)]="password"></ion-input>
+      <ion-note>{{passwordErr}}</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-input type="password" placeholder="Xác nhận mật khẩu" [(ngModel)]="confirm"></ion-input>
+      <ion-note>{{confirmErr}}</ion-note>
+    </ion-item>
+    <div class="btn-center-align">
+      <!-- <ion-button shape="round" color="theme-color" (click)="send()">Gửi mã</ion-button> -->
+      <ion-button shape="round" color="theme-color" (click)="change()">Đổi mật khẩu</ion-button>
+    </div>
+  </ion-list>
+</ion-content>

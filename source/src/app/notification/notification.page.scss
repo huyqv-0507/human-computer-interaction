@@ -1,0 +1,32 @@
+ion-item-divider {
+  --background: var(--ion-color-white-button);
+  ion-label {
+    font-weight: 750;
+    color: rgb(34, 34, 34);
+  }
+}
+
+.notyet {
+  --background:#dfedf2;
+}
+
+ion-list {
+  padding-top: 0px;
+}
+
+ion-item {
+    ion-row {
+      padding: 5px;
+      margin: 0;
+      
+      ion-col {
+        height: 100%;
+      }
+    }
+}
+
+#img{
+  width: 2.07em;
+  height: 2em;
+  border-radius:50%;
+}

@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar color="theme-color">
+    <ion-back-button color="white-button"></ion-back-button>
+    <ion-title>Xác thực</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item id="head">
+      <ion-input type="number" placeholder="Mã xác nhận từ điện thoại" [(ngModel)]="token"></ion-input>
+      <ion-note>{{tokenErr}}</ion-note>
+    </ion-item>
+    <br />
+    <div class="btn-center-align">
+      <ion-button shape="round" color="theme-color" (click)="send()">Gửi lại mã xác nhận</ion-button>
+     </div>
+  </ion-list>
+</ion-content>

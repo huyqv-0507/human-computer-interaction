@@ -1,0 +1,16 @@
+<ion-footer>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button [routerLink]="['./']">
+      <ion-icon name="home" color="{{isActiveHome}}"></ion-icon>
+      <ion-text color="toolbar-background">Trang chủ</ion-text>
+    </ion-tab-button>
+    <ion-tab-button (click)="checkActive('interest')">
+      <ion-icon name="bookmark" color="{{isActiveInterest}}"></ion-icon>
+      <ion-text>Đã lưu</ion-text>
+    </ion-tab-button>
+    <ion-tab-button (click)="checkActive('notification')">
+      <ion-icon name="notifications" color="{{isActiveNotification}}"></ion-icon>
+      <ion-text>Thông báo</ion-text>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-footer>

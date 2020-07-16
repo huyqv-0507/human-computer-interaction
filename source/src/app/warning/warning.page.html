@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar color="theme-color">
+    <ion-back-button color="white-button"></ion-back-button>
+    <ion-title>Cảnh báo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-text><span>Gửi tới: </span>{{userID}}</ion-text>
+    </ion-item>
+    <ion-item>
+      <ion-textarea type="text" placeholder="Nội dung" [(ngModel)]="content">
+      </ion-textarea>
+    </ion-item>
+    <p *ngIf="notify">Nội dung chưa được nhập!</p>
+    <br />
+    <div class="btn-center-align">
+      <ion-button color="theme-color" shape="round" (click)="submit()">Gửi</ion-button>
+    </div>
+  </ion-list>
+</ion-content>

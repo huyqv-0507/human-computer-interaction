@@ -1,0 +1,167 @@
+<ion-header>
+  <ion-toolbar color="theme-color">
+    <ion-title><ion-text color="white-button" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Tin đã đăng</ion-text></ion-title>
+    <ion-buttons slot="end" *ngIf="notUser; else elseBlock">
+      <ion-button [routerLink]="['./login']">
+        <ion-icon name="person-circle-outline" slot="icon-only" color="white-button"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ng-template #elseBlock>
+      <ion-buttons slot="end" (click)="presentPopover($event)">
+        <ion-button>
+          <img id="img" [src]="user.img" />
+        </ion-button>
+      </ion-buttons>
+    </ng-template>
+  </ion-toolbar>
+</ion-header>
+<ion-content padding>
+  <ion-segment [(ngModel)]="postSegment" (ionChange)="segmentChange(postSegment)">
+    <ion-segment-button value="Tất cả">
+      <ion-label>Tất cả(3)</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Đã đăng">
+      <ion-label>Đã đăng(1)</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Bị từ chối">
+      <ion-label>Bị từ chối(1)</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Chờ duyệt">
+      <ion-label>Chờ xét duyệt(1)</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  <div [ngSwitch]="postSegment">
+    <ion-list *ngSwitchCase="'Tất cả'">
+      <ion-item (click)="onViewPosted()" class="item-delete">
+        <div id="posted-card">
+          <ion-grid>
+            <ion-row class="ion-align-items-center">
+              <ion-col size="4" class="col-full">
+                <img src={{houseList[1].img[0]}}>
+              </ion-col>
+              <ion-col size="8">
+                <p class="posted-title">Cho thuê chung cư Sky 9</p>
+                <p class="posted-title">
+                  <ion-text color="danger">7.500.000 đ</ion-text>
+                </p>
+                <p class="posted-title">1 phút trước</p>
+                <ion-row class="ion-justify-content-start">
+                  <ion-icon name="time-outline" color="medium"></ion-icon>
+                  <ion-text color="medium" class="row-text">Đang chờ xét duyệt</ion-text>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+  
+          </ion-grid>
+        </div>
+      </ion-item>
+      <ion-item (click)="onRefuse()" class="item-deleteee">
+        <div id="posted-card">
+          <ion-grid>
+            <ion-row class="ion-align-items-center">
+              <ion-col size="4" class="col-full">
+                <img src={{houseList[2].img[0]}} style="opacity: 0.6;">
+              </ion-col>
+              <ion-col size="8">
+                <p class="posted-title"><ion-text color="medium">nfilsbfyusfhbksuhfbs</ion-text> </p>
+                <p class="posted-title">
+                  <ion-text color="medium">11.000.000 đ</ion-text>
+                </p>
+                <p class="posted-title"><ion-text color="medium">6 giờ trước</ion-text></p>
+                <ion-row class="ion-justify-content-start ">
+                  <ion-icon name="alert-circle-outline" color="danger"></ion-icon>
+                  <ion-text color="danger" class="row-text">Bị từ chối</ion-text>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-item>
+      <ion-item (click)="onViewPostedSuccess()" class="item-deletee">
+        <div id="posted-card">
+          <ion-grid>
+            <ion-row class="ion-align-items-center">
+              <ion-col size="4" class="col-full">
+                <img src={{houseList[0].img[0]}}>
+              </ion-col>
+              <ion-col size="8">
+                <p class="posted-title">Cho thuê căn hộ 2PN full nội thất CC HQC Hóc Môn</p>
+                <p class="posted-title">
+                  <ion-text color="danger">6.000.000 đ</ion-text>
+                </p>
+                <p class="posted-title">8 giờ trước</p>
+                <ion-row class="ion-justify-content-start">
+                  <ion-icon name="checkmark-circle-outline" color="success"></ion-icon>
+                  <ion-text color="success" class="row-text">Đăng thành công</ion-text>
+                </ion-row>
+              </ion-col>
+            </ion-row>
+  
+          </ion-grid>
+        </div>
+      </ion-item>
+    </ion-list>
+    <ion-list *ngSwitchCase="'Đã đăng'">
+      <ion-item (click)="onViewPostedSuccess()" class="item-deletee">
+        <div id="posted-card">
+          <ion-grid>
+            <ion-row class="ion-align-items-center">
+              <ion-col size="4" class="col-full">
+                <img src={{houseList[0].img[0]}}>
+              </ion-col>
+              <ion-col size="8">
+                <p class="posted-title">Cho thuê căn hộ 2PN full nội thất CC HQC Hóc Môn</p>
+                <p class="posted-title">
+                  <ion-text color="danger">6.000.000 đ</ion-text>
+                </p>
+                <p class="posted-title">8 giờ trước</p>
+              </ion-col>
+            </ion-row>
+  
+          </ion-grid>
+        </div>
+      </ion-item>
+    </ion-list>
+    <ion-list *ngSwitchCase="'Bị từ chối'">
+      <ion-item (click)="onRefuse()" class="item-deleteee">
+        <div id="posted-card">
+          <ion-grid>
+            <ion-row class="ion-align-items-center">
+              <ion-col size="4" class="col-full">
+                <img src={{houseList[2].img[0]}} style="opacity: 0.6;">
+              </ion-col>
+              <ion-col size="8">
+                <p class="posted-title"><ion-text color="medium">nfilsbfyusfhbksuhfbs</ion-text> </p>
+                <p class="posted-title">
+                  <ion-text color="medium">11.000.000 đ</ion-text>
+                </p>
+                <p class="posted-title"><ion-text color="medium">6 giờ trước</ion-text></p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-item>
+    </ion-list>
+    <ion-list *ngSwitchCase="'Chờ duyệt'">
+      <ion-item (click)="onViewPosted()" class="item-delete">
+        <div id="posted-card">
+          <ion-grid>
+            <ion-row class="ion-align-items-center">
+              <ion-col size="4" class="col-full">
+                <img src={{houseList[1].img[0]}}>
+              </ion-col>
+              <ion-col size="8">
+                <p class="posted-title">Cho thuê chung cư Sky 9</p>
+                <p class="posted-title">
+                  <ion-text color="danger">7.500.000 đ</ion-text>
+                </p>
+                <p class="posted-title">1 phút trước</p>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+  
+</ion-content>

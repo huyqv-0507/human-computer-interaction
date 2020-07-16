@@ -1,0 +1,29 @@
+// Định vị so với cha
+ion-content ion-list {
+  position: relative;
+  top: 25%;
+}
+
+.btn-center-align {
+  text-align: center;
+}
+
+ion-button {
+  --color: white;
+  width: 90%;
+}
+
+a {
+  margin-left: 15%;
+}
+
+ion-title {
+  float: left;
+  padding-left: 5%;
+  color: white;
+}
+
+p{
+  color: red;
+  text-align: center;
+}

@@ -1,0 +1,75 @@
+<ion-header>
+    <ion-toolbar color="theme-color">
+      <ion-title><ion-text color="white-button" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Thông báo</ion-text></ion-title>
+      <ion-buttons slot="end" *ngIf="notUser; else elseBlock">
+        <ion-button [routerLink]="['./login']">
+          <ion-icon name="person-circle-outline" slot="icon-only" color="white-button"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ng-template #elseBlock>
+        <ion-buttons slot="end" (click)="presentPopover($event)">
+          <ion-button>
+            <img id="img" [src]="user.img" />
+          </ion-button>
+        </ion-buttons>
+      </ng-template>
+    </ion-toolbar>
+  </ion-header>
+<ion-item-divider>
+    <ion-label>
+        Gần đây
+    </ion-label>
+</ion-item-divider>
+<ion-content>
+    <ion-list>
+        <!-- <ion-item class="notyet" >
+            <ion-row class="ion-align-items-center">
+                <ion-col size="2" >
+                    <img src="../assets/imgs/tick.png">
+                </ion-col>
+                <ion-col size="10">
+                    <strong>Đăng tin thành công</strong><br>
+                    <ion-text>Cho thuê chung cư Sky 9</ion-text><br>
+                    <ion-text color="medium">Vừa xong</ion-text>
+                </ion-col>
+            </ion-row>
+        </ion-item> -->
+        <ion-item (click)="openPostWarning()">
+            <ion-row class="ion-align-items-center">
+                <ion-col size="2" >
+                    <img src="../assets/imgs/error.png">
+                </ion-col>
+                <ion-col size="10">
+                    <strong>Cảnh báo vi phạm</strong><br>
+                    <ion-text>Bạn đã đăng nội dung không phù hợp</ion-text><br>
+                    <ion-text color="medium">2 giờ trước</ion-text>
+                </ion-col>
+            </ion-row>
+        </ion-item>
+        <ion-item (click)="openPostRefuse()">
+            <ion-row class="ion-align-items-center">
+                <ion-col size="2" >
+                    <img src="../assets/imgs/cross.png">
+                </ion-col>
+                <ion-col size="10">
+                    <strong>Đăng tin không thành công</strong><br>
+                    <ion-text>Bài đăng: nfilsbfyusfhbksuhfbs</ion-text><br>
+                    <ion-text color="medium">6 giờ trước</ion-text>
+                </ion-col>
+            </ion-row>
+        </ion-item>
+        <ion-item (click)="openPostSuccess()">
+            <ion-row class="ion-align-items-center">
+                <ion-col size="2" >
+                    <img src="../assets/imgs/tick.png">
+                </ion-col>
+                <ion-col size="10">
+                    <strong>Đăng tin thành công</strong><br>
+                    <ion-text>Bài đăng: Cho thuê căn hộ 2PN full nội thất CC HQC Hóc Môn</ion-text><br>
+                    <ion-text color="medium">8 giờ trước</ion-text>
+                </ion-col>
+            </ion-row>
+        </ion-item>
+    </ion-list>
+
+</ion-content>

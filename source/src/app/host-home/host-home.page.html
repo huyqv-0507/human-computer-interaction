@@ -1,0 +1,82 @@
+<ion-header>
+  <ion-toolbar color="theme-color">
+    <ion-title>
+      <ion-text color="white-button" style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Trang chủ
+      </ion-text>
+    </ion-title>
+    <ion-buttons slot="end" *ngIf="notUser; else elseBlock">
+      <ion-button [routerLink]="['./login']">
+        <ion-icon name="person-circle-outline" slot="icon-only" color="white-button"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ng-template #elseBlock>
+      <ion-buttons slot="end" (click)="presentPopover($event)">
+        <ion-button>
+          <img id="img" [src]="user.img" />
+        </ion-button>
+      </ion-buttons>
+    </ng-template>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid class="grid">
+      <ion-label style="color: white;font-size: 40px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Chọn loại
+        hình<br> bạn muốn cho thuê</ion-label>
+    <ion-row>
+      <ion-col>
+        <div class="container" (click)="postApartment()">
+          <ion-row>
+            <img src="../../assets/imgs/apartment.svg">
+          </ion-row>
+          <ion-row>
+            <ion-label class="text">Chung cư</ion-label>
+          </ion-row>
+        </div>
+        <div class="container" (click)="postOffice()">
+          <ion-row>
+            <img src="../../assets/imgs/corporation.svg">
+          </ion-row>
+          <ion-row>
+            <ion-label class="text">Văn phòng</ion-label>
+          </ion-row>
+        </div>
+        <div class="container" (click)="postEdc()">
+          <ion-row>
+            <img src="../../assets/imgs/edc.svg">
+          </ion-row>
+          <ion-row>
+            <ion-label class="text">Mặt bằng</ion-label>
+          </ion-row>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div class="container" (click)="postHouse()">
+          <ion-row>
+            <img src="../../assets/imgs/house.svg">
+          </ion-row>
+          <ion-row>
+            <ion-label class="text">Nhà nguyên căn</ion-label>
+          </ion-row>
+        </div>
+        <div class="container" (click)="postMotel()">
+          <ion-row>
+            <img src="../../assets/imgs/motel.svg">
+          </ion-row>
+          <ion-row>
+            <ion-label class="text">Nhà trọ</ion-label>
+          </ion-row>
+        </div>
+        
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed" class="fab-notification"
+    [routerLink]="['/host-messenger-noti']">
+    <ion-fab-button>
+      <ion-icon name="chatbubbles" color="white-button"></ion-icon>
+      <ion-badge color="danger" class="badge-notification">1</ion-badge>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

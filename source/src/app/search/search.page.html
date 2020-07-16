@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="theme-color">
+    <ion-back-button color="white-button" slot="start"></ion-back-button>
+    <ion-title color="white-button">Tìm kiếm</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="check; else elseBlock">
+    <ng-container *ngFor="let item of listHouse">
+      <br />
+      <br />
+      <div>
+        <div id="desc">
+          <ion-text>{{item.title.toLocaleUpperCase()}}</ion-text>
+          <br />
+          <br />
+          <ion-note><span style="color: red;">Giá: {{item.price}}</span></ion-note>
+          <br />
+          <ion-note id="note"><i>{{item.address}}</i></ion-note>
+        </div>
+        <br />
+        <div id="img">
+          <img [src]="item.img[0]" />
+          <ion-button [routerLink]="['/tenant/', item.id]">
+            Xem chi tiết</ion-button>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <ng-template #elseBlock>
+    <h3>Không có kết quả nào phù hợp!</h3>
+  </ng-template>
+</ion-content>

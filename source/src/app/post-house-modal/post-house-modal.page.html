@@ -1,0 +1,255 @@
+<ion-header>
+  <ion-toolbar color="theme-color">
+    <ion-buttons slot="start">
+      <ion-button (click)="closeModal()" color="white-button">
+        <ion-icon name="arrow-back" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="white-button">Đăng tin</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="exitPost()" color="white-button">
+        <ion-icon name="close" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item-divider>
+    <ion-title>Thông tin cơ bản</ion-title>
+  </ion-item-divider>
+  <div id="content-simple">
+    <ion-list>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Tỉnh, thành phố</ion-label>
+          <ion-input readonly>Tp Hồ Chí Minh</ion-input>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Quận, huyện <ion-text color="dark">(*)</ion-text>
+          </ion-label>
+          <ion-select multiple="false" okText="Chọn" cancelText="Thoát" placeholder="Chọn quận, huyện">
+            <ion-select-option value="quan1">Quận 1</ion-select-option>
+            <ion-select-option value="quan2">Quận 2</ion-select-option>
+            <ion-select-option value="quan3">Quận 3</ion-select-option>
+            <ion-select-option value="quan4">Quận 4</ion-select-option>
+            <ion-select-option value="quan5">Quận 5</ion-select-option>
+            <ion-select-option value="quan6">Quận 6</ion-select-option>
+            <ion-select-option value="quan7">Quận 7</ion-select-option>
+            <ion-select-option value="quan8">Quận 8</ion-select-option>
+            <ion-select-option value="quan9">Quận 9</ion-select-option>
+            <ion-select-option value="quan10">Quận 10</ion-select-option>
+            <ion-select-option value="quan11">Quận 11</ion-select-option>
+            <ion-select-option value="quan12">Quận 12</ion-select-option>
+            <ion-select-option value="quanGoVap">Quận Gò Vấp</ion-select-option>
+            <ion-select-option value="quanPhuNhuan">Quận Phú Nhuận</ion-select-option>
+            <ion-select-option value="quanTanBinh">Quận Tân Bình</ion-select-option>
+            <ion-select-option value="quanTanPhu">Quận Tân Phú</ion-select-option>
+            <ion-select-option value="quanThuDuc">Quận Thủ Đức</ion-select-option>
+            <ion-select-option value="huyenBinhChanh">Huyện Bình Chánh</ion-select-option>
+            <ion-select-option value="huyenCanGio">Huyện Cần Giờ</ion-select-option>
+            <ion-select-option value="huyenCuChi">Huyện Củ Chi</ion-select-option>
+            <ion-select-option value="huyenHocMon">Huyện Hóc Môn</ion-select-option>
+            <ion-select-option value="huyenNhaBe">Huyện Nhà Bè</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Phường, xã, thị trấn <ion-text color="dark">(*)</ion-text>
+          </ion-label>
+          <ion-select class="set-full-width" multiple="false" okText="Chọn" cancelText="Thoát"
+            placeholder="Chọn phường, xã, thị trấn">
+            <ion-select-option value="quan1">Phường Hiệp Phú</ion-select-option>
+            <ion-select-option value="quan2">Phường Long Bình</ion-select-option>
+            <ion-select-option value="quan3">Phường Long Phước</ion-select-option>
+            <ion-select-option value="quan4">Phường Long Thạnh Mỹ</ion-select-option>
+            <ion-select-option value="quan5">Phường Long Trường</ion-select-option>
+            <ion-select-option value="quan6">Phường Phú Hữu</ion-select-option>
+            <ion-select-option value="quan7">Phường Phước Bình</ion-select-option>
+            <ion-select-option value="quan8">Phường Phước Long A</ion-select-option>
+            <ion-select-option value="quan9">Phường Phước Long B</ion-select-option>
+            <ion-select-option value="quan10">Phường Tân Phú</ion-select-option>
+            <ion-select-option value="quan11">Phường Tăng Nhơn Phú A</ion-select-option>
+            <ion-select-option value="quan12">Phường Tăng Nhơn Phú B</ion-select-option>
+            <ion-select-option value="quanGoVap">Phường Trường Thạnh</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Tên đường (*)</ion-label>
+          <ion-input placeholder="Chưa có thông tin"></ion-input>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Số nhà</ion-label>
+          <ion-input placeholder="Chưa có thông tin"></ion-input>
+        </ion-col>
+      </ion-item>
+    </ion-list>
+  </div>
+  <ion-item-divider>
+    <ion-title>Thông tin chi tiết</ion-title>
+  </ion-item-divider>
+  <div id="content-detail">
+    <ion-list>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Tiêu đề (*)</ion-label>
+          <ion-input placeholder="Chưa có thông tin"></ion-input>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Mô tả (*)</ion-label>
+          <ion-input placeholder="Chưa có thông tin"></ion-input>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Giá (*)</ion-label>
+          <ion-item lines="none">
+            <ion-input placeholder="Giá" type="number"></ion-input>
+            <ion-label>VNĐ</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Diện tích (*)</ion-label>
+          <ion-item lines="none">
+            <ion-input placeholder="Chưa có thông tin" type="number"></ion-input>
+            <ion-label>m2</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Loại hình</ion-label>
+          <p>
+            <ion-text color="dark">{{category}}</ion-text>
+          </p>
+        </ion-col>
+      </ion-item>
+
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Nội thất</ion-label>
+          <ion-input placeholder="Chưa có thông tin"></ion-input>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Số phòng ngủ</ion-label>
+          <ion-select class="set-full-width" multiple="false" okText="Chọn" cancelText="Thoát"
+            placeholder="Số phòng ngủ">
+            <ion-select-option value="quan1">1</ion-select-option>
+            <ion-select-option value="quan2">2</ion-select-option>
+            <ion-select-option value="quan3">3</ion-select-option>
+            <ion-select-option value="quan4">4</ion-select-option>
+            <ion-select-option value="quan5">5</ion-select-option>
+            <ion-select-option value="quan6">6</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Số phòng vệ sinh</ion-label>
+          <ion-select class="set-full-width" multiple="false" okText="Chọn" cancelText="Thoát"
+            placeholder="Số phòng ngủ">
+            <ion-select-option value="quan1">1</ion-select-option>
+            <ion-select-option value="quan2">2</ion-select-option>
+            <ion-select-option value="quan3">3</ion-select-option>
+            <ion-select-option value="quan4">4</ion-select-option>
+            <ion-select-option value="quan5">5</ion-select-option>
+            <ion-select-option value="quan6">6</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Tầng số</ion-label>
+          <ion-input placeholder="Chưa có thông tin"></ion-input>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Phòng số</ion-label>
+          <ion-input placeholder="Chưa có thông tin"></ion-input>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Hướng cửa chính</ion-label>
+          <ion-input placeholder="Chưa có thông tin"></ion-input>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Tiền cọc</ion-label>
+          <ion-item lines="none">
+            <ion-input placeholder="Nhập cọc" type="number"></ion-input>
+            <ion-label>VNĐ</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Giấy tờ pháp lý</ion-label>
+          <ion-input placeholder="Chưa có thông tin"></ion-input>
+        </ion-col>
+      </ion-item>
+      <!--<ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Tình trạng bất động sản</ion-label>
+          <ion-radio-group value="own">
+            <ion-item lines="none">
+              <ion-text>Đã bàn giao</ion-text>
+              <ion-radio slot="start" value="own"></ion-radio>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-text>Đang bàn giao</ion-text>
+              <ion-radio slot="start"></ion-radio>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-text>Chưa bàn giao</ion-text>
+              <ion-radio slot="start"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-col>
+      </ion-item>-->
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Hình ảnh (*)</ion-label>
+          <div class="img-post">
+              <img src="{{img}}" *ngFor="let img of imgArr">
+            <div>
+              <ion-button (click)="takePhoto()">
+                <ion-icon name="camera"></ion-icon>
+                <ion-label>Chụp ảnh</ion-label>
+              </ion-button>
+              <ion-button (click)="choosePhoto()">
+                <ion-icon name="camera"></ion-icon>
+                <ion-label>Chọn ảnh</ion-label>
+              </ion-button>
+            </div>
+
+          </div>
+        </ion-col>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="theme-color" (click)="showToast()">
+    <div class="house-post">
+      <ion-icon name="arrow-up" slot="icon-only"></ion-icon>
+      <ion-label>Đăng tin</ion-label>
+    </div>
+  </ion-toolbar>
+</ion-footer>

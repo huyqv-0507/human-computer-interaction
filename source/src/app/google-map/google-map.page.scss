@@ -1,0 +1,38 @@
+#map {
+    height: 100%;
+    position: relative;
+    #popup-info {
+        width: 100%;
+        height: 200px;
+        background-color: white;
+        box-shadow: 2px 1px 14px 0px rgba(0,0,0,0.72);
+        position: absolute;
+        bottom: 0;
+        display: none;
+        ion-grid {
+            padding: 0;
+            margin: 0;
+        }
+        ion-row {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 200px;
+            img {
+                width: 100%;
+                height: 200px;
+            }
+            ion-col {
+                padding: 0;
+                margin: 0;
+                .detail {
+                    padding-left: 10px;
+                    ion-icon {
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
+        
+    }
+}

@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar color="theme-color">
+    <ion-buttons slot="start">
+      <ion-back-button color="white-button"></ion-back-button>
+    </ion-buttons>
+    <ion-title color="white-button">Tin nhắn</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-item-divider>
+  <ion-label>
+    Gần đây
+  </ion-label>
+</ion-item-divider>
+<ion-content>
+  <ion-list>
+    <ion-item [class.notyet]="isNotYet">
+      <ion-row class="ion-align-items-center">
+        <ion-col size="2">
+          <img src="../assets/imgs/comment.png">
+        </ion-col>
+        <ion-col size="10" [routerLink]="['/notification', 'chiennd']">
+          <strong>Bạn có một tin nhắn mới</strong><br>
+          <ion-text>Nguyễn Chiến: Có giảm giá chút không a</ion-text><br>
+          <ion-text color="medium">Vừa xong</ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+    <ion-item>
+      <ion-row class="ion-align-items-center">
+        <ion-col size="2">
+          <img src="../assets/imgs/comment.png">
+        </ion-col>
+        <ion-col size="10" [routerLink]="['/notification', 'chiennd']">
+          <strong>Bạn có một tin nhắn mới</strong><br>
+          <ion-text>Nguyễn Chiến: Hello</ion-text><br>
+          <ion-text color="medium">5 giờ trước</ion-text>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

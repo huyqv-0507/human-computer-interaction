@@ -1,0 +1,97 @@
+<ion-content padding>
+    <ion-item-divider>
+        <ion-label>Tiện ích</ion-label>
+    </ion-item-divider>
+    <div id="content-utilities">
+        <ion-grid>
+            <ion-row>
+                <ion-col>
+                    <ion-button fill="none" (click)="postHouse()">
+                        <img src="../../assets/imgs/rent.png">
+                        <span style="text-transform:none!important;">Đăng tin</span>
+                    </ion-button>
+                </ion-col>
+                <ion-col>
+                    <ion-button fill="none" (click)="postedHouse()">
+                        <img src="../../assets/imgs/tenant.png">
+                        <span style="text-transform:none!important;">Tin đã đăng</span></ion-button>
+                </ion-col>
+                <ion-col>
+                    <ion-button fill="none" (click)="onNavGoogleMaps()">
+                        <img src="../../assets/imgs/location.png">
+                        <span style="text-transform:none!important;">Gần đây</span></ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <br>
+    </div>
+    <br />
+    <br />
+    <ion-item-divider>
+        <ion-label>Giá tốt nhất</ion-label>
+    </ion-item-divider>
+    <div id="content-houses-most-price">
+        <ion-slides pager [options]="slideOpts">
+            <ion-slide *ngFor="let house of housesTopPrice; let i = index">
+                <div class="card-info">
+                    <p class="title">{{house.title}}</p>
+                    <p class="price">Giá: {{house.price}}</p>
+                    <p class="address"><i>Tp.Hồ Chí Minh</i></p>
+                    <img src={{house.img[0]}}>
+                    <img src={{house.img[1]}}>
+                    <ion-button fill="undefined" expand="block" class="card-btn detail-btn"
+                        [routerLink]="['./', house.id]">
+                        <ion-icon name="help-circle-outline"></ion-icon>
+                        <ion-text>Xem chi tiết</ion-text>
+                    </ion-button>
+                    <ion-button fill="undefined" expand="block" class="card-btn save-btn"
+                        (click)="changeInterestStatus(i,'topPrice')">
+                        <ion-icon name="bookmark-outline"></ion-icon>
+                        <ion-text>{{listStatusTopPrice[i].status}}</ion-text>
+                    </ion-button>
+                    <br />
+                </div>
+            </ion-slide>
+        </ion-slides>
+    </div>
+    <ion-item-divider>
+        <ion-label>Được xem nhiều nhất</ion-label>
+    </ion-item-divider>
+    <div id="content-houses-most-view">
+        <ion-list>
+            <ion-item-sliding *ngFor="let house of housesTop; let i = index">
+                <ion-item [routerLink]="['./', house.id]">
+                    <ion-grid>
+                        <ion-row>
+                            <ion-col size="3" class="col-margin-img">
+                                <div class="img-list">
+                                    <img src={{house.img[0]}}>
+                                </div>
+
+                            </ion-col>
+                            <ion-col size="9" class="col-detail">
+                                <ion-text class="title-col-detail">{{house.title}}</ion-text>
+                                <br>
+                                <ion-note>
+                                    <ion-text color="danger">{{house.price}}</ion-text>
+                                </ion-note>
+                                <br>
+                                <ion-note>
+                                    <ion-text>{{house.address}}</ion-text>
+                                </ion-note>
+                            </ion-col>
+                        </ion-row>
+                    </ion-grid>
+                </ion-item>
+
+                <ion-item-options side="end">
+                    <ion-item-option color="theme-color" (click)="changeInterestStatus(i,'top')">
+                        <ion-text class="ion-text-capitalize" color="white-button">{{listStatusTop[i].status}}</ion-text>
+                    </ion-item-option>
+                </ion-item-options>
+            </ion-item-sliding>
+
+        </ion-list>
+
+    </div>
+</ion-content>

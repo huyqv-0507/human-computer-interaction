@@ -1,0 +1,13 @@
+<ion-list *ngIf="isShow">
+    <ion-item>
+        <p>Xin chào {{user.fullName}}!</p>
+    </ion-item>
+    <ion-item button (click)="disable()">
+        <img [src]="user.img" />
+        Thông tin tài khoản
+    </ion-item>
+    <ion-item button (click)="logout()">
+        <ion-icon name="log-out"></ion-icon>
+        Đăng xuất
+    </ion-item>
+</ion-list>

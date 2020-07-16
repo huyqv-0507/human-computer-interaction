@@ -1,0 +1,35 @@
+
+img {
+  height: 200px;
+  width: 250px;
+  border: 1px black;
+}
+
+#img {
+  text-align: center;
+}
+
+#desc {
+  text-align: center;
+}
+
+h3{
+  text-align: center;
+}
+
+ion-back-button {
+  float: left;
+}
+
+ion-title {
+  float: left;
+  padding-left: 5%;
+  color: white;
+}
+
+ion-button {
+  width: 250px;
+  height: 35px;
+  --border-radius: 30px;
+  --background: var(--ion-color-theme-color);
+}

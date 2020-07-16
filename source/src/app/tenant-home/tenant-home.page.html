@@ -1,0 +1,174 @@
+<ion-header>
+  <ion-toolbar class="toolbar-header" color="theme-color">
+    <ion-input placeholder="Tìm nhà, căn hộ..." color="white-button" [(ngModel)]="searchValue">
+    </ion-input>
+    <ion-buttons slot="start">
+      <ion-button [routerLink]="['/tenant/search', searchValue]">
+        <ion-icon name="search" slot="icon-only" color="white-button">
+        </ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end" *ngIf="notUser; else elseBlock">
+      <ion-button [routerLink]="['./login']">
+        <ion-icon name="person-circle-outline" slot="icon-only" color="white-button"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ng-template #elseBlock>
+      <ion-buttons slot="end" (click)="presentPopover($event)">
+        <ion-button>
+          <img id="img" [src]="user.img" />
+        </ion-button>
+      </ion-buttons>
+    </ng-template>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item-divider lines="none">
+    <ion-label>Danh mục</ion-label>
+  </ion-item-divider>
+  <div id="content-categories">
+    <ion-slides [options]="slidesOpts" class="slides-categories">
+      <ion-slide>
+        <ion-button fill="none" class="btn-slide" [routerLink]="['/list', 'Chung cư']">
+          <div>
+            <div>
+              <img src="../assets/imgs/apartment.svg">
+            </div>
+            <ion-text class="ion-text-capitalize">Chung cư</ion-text>
+          </div>
+        </ion-button>
+      </ion-slide>
+      <ion-slide>
+        <ion-button fill="none" [routerLink]="['/list', 'Nhà trọ']">
+          <div>
+            <div>
+              <img src="../assets/imgs/motel.svg">
+            </div>
+            <ion-text class="ion-text-capitalize">Nhà trọ</ion-text>
+          </div>
+        </ion-button>
+      </ion-slide>
+      <ion-slide>
+        <ion-button fill="none" [routerLink]="['/list', 'Văn phòng']">
+          <div>
+            <div>
+              <img src="../assets/imgs/corporation.svg">
+            </div>
+            <ion-text class="ion-text-capitalize">Văn phòng</ion-text>
+          </div>
+        </ion-button>
+      </ion-slide>
+      <ion-slide>
+        <ion-button fill="none" [routerLink]="['/list', 'Nhà nguyên căn']">
+          <div>
+            <div>
+              <img src="../assets/imgs/house.svg">
+            </div>
+            <ion-text class="ion-text-capitalize">Nguyên căn</ion-text>
+          </div>
+        </ion-button>
+      </ion-slide>
+      <ion-slide>
+        <ion-button fill="none" [routerLink]="['/list', 'Nhà nguyên căn']">
+          <div>
+            <div>
+              <img src="../assets/imgs/edc.svg">
+            </div>
+            <ion-text class="ion-text-capitalize">Mặt bằng</ion-text>
+          </div>
+        </ion-button>
+      </ion-slide>
+      <!-- <ion-slide>
+        <ion-button fill="none" [routerLink]="['/list', 'Nhà nguyên căn']">
+          <div>
+            <div>
+              <img src="../assets/imgs/homestay.svg">
+            </div>
+            <ion-text class="ion-text-capitalize">Homestay</ion-text>
+          </div>
+        </ion-button>
+      </ion-slide> -->
+    </ion-slides>
+
+    <br>
+  </div>
+  <ion-item-divider>
+    <ion-label>Giá tốt nhất</ion-label>
+  </ion-item-divider>
+  <div id="content-houses-most-price">
+    <ion-slides pager [options]="slideOpts">
+      <ion-slide *ngFor="let house of houseTopPrice; let i = index">
+        <div class="card-info">
+          <p class="title">{{house.title}}</p>  
+          <p class="price">Giá: {{house.price}}</p>
+          <p class="address"><ion-icon name="location"></ion-icon> <i> 29,5 km</i></p>
+          <p class="address"><i>{{house.address}}</i></p>
+          <img src={{house.img[0]}}>
+          <img src={{house.img[1]}}>
+          <ion-button fill="undefined" expand="block" class="card-btn detail-btn" [routerLink]="['/tenant/', house.id]">
+            <ion-icon name="help-circle-outline"></ion-icon>
+            <ion-text>Xem chi tiết</ion-text>
+          </ion-button>
+          <ion-button fill="undefined" expand="block" class="card-btn save-btn"
+            (click)="changeInterestStatus(i,'topPrice')">
+            <ion-icon name="bookmark-outline"></ion-icon>
+            <ion-text>{{listStatusTopPrice[i].status}}</ion-text>
+          </ion-button>
+          <br />
+        </div>
+      </ion-slide>
+    </ion-slides>
+  </div>
+  <ion-item-divider>
+    <ion-label>Được xem nhiều nhất</ion-label>
+  </ion-item-divider>
+  <div id="content-houses-most-view">
+    <ion-list>
+      <ion-item-sliding *ngFor="let house of houseTop; let i = index">
+        <ion-item [routerLink]="['/tenant/', house.id]">
+          <ion-grid>
+            <ion-row>
+              <ion-col size="3" class="col-margin-img">
+                <div class="img-list">
+                  <img src={{house.img[0]}}>
+                </div>
+              </ion-col>
+              <ion-col size="9" class="col-detail">
+                <ion-text class="title-col-detail">{{house.title}}</ion-text>
+                <br>
+                <ion-note>
+                  <ion-text color="danger">{{house.price}}</ion-text>
+                </ion-note>
+                <br>
+                <ion-note>
+                  <ion-text>{{house.address}}</ion-text>
+                </ion-note>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-item>
+
+        <ion-item-options side="end">
+          <ion-item-option color="theme-color" (click)="changeInterestStatus(i,'top')">
+            <ion-text class="ion-text-capitalize" color="white-button">{{listStatusTop[i].status}}</ion-text>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+  <!-- <ion-fab horizontal="end" vertical="bottom" slot="fixed" (click)="showNotifications()" class="fab-notification">
+    <ion-fab-button >
+      <ion-icon name="notifications" color="theme-color"></ion-icon>
+      <ion-badge color="danger" class="badge-notification">1</ion-badge>
+    </ion-fab-button>
+  </ion-fab> -->
+
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed" class="fab-notification"
+    [routerLink]="['/tenant-messenger-noti']">
+    <ion-fab-button>
+      <ion-icon name="chatbubbles" color="white-button"></ion-icon>
+      <ion-badge color="danger" class="badge-notification">1</ion-badge>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

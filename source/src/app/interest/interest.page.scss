@@ -1,0 +1,44 @@
+ion-item-divider {
+  --background: var(--ion-color-white-button);
+  ion-label {
+    font-weight: 750;
+    color: rgb(34, 34, 34);
+  }
+}
+
+#img {
+  img {
+    height: 200px;
+    width: 250px;
+    border: 1px black;
+  }
+}
+
+#img {
+  text-align: center;
+}
+
+#button {
+  width: 250px;
+  height: 35px;
+  --border-radius: 30px;
+  --background: var(--ion-color-theme-color);
+}
+
+span {
+  color: red;
+}
+
+#desc {
+  text-align: center;
+}
+
+#note {
+  color: rgb(14, 14, 14);
+}
+
+#img1 {
+  width: 2.07em;
+  height: 2em;
+  border-radius: 50%;
+}

@@ -1,0 +1,165 @@
+<ion-header>
+  <ion-toolbar color="theme-color">
+    <ion-buttons slot="start" >
+      <ion-button (click)="closeViewPosted()">
+        <ion-icon name="arrow-back" color="white-button"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title color="white-button">Thông tin</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item-divider>
+    <ion-title>Thông tin cơ bản</ion-title>
+  </ion-item-divider>
+  <div id="content-simple">
+      <ion-list>
+        <ion-item>
+          <ion-col>
+            <ion-label class="custom-label">Tỉnh, thành phố</ion-label>
+            <ion-input readonly>Tp Hồ Chí Minh</ion-input>
+          </ion-col>
+        </ion-item>
+        <ion-item>
+          <ion-col>
+            <ion-label class="custom-label">Quận, huyện</ion-label>
+            <p>Quận 9</p>
+          </ion-col>
+        </ion-item>
+        <ion-item>
+          <ion-col>
+            <ion-label class="custom-label">Phường, xã, thị trấn</ion-label>
+            <p>Phường Phú Hữu</p>
+          </ion-col>
+        </ion-item>
+        <ion-item>
+          <ion-col>
+            <ion-label class="custom-label">Tên đường</ion-label>
+            <p>Đường số 1, phường Phú Hữu, Quận 9, Tp Hồ Chí Minh</p>
+          </ion-col>
+        </ion-item>
+        <ion-item>
+          <ion-col>
+            <ion-label class="custom-label">Số nhà</ion-label>
+            <p>61</p>
+          </ion-col>
+        </ion-item>
+      </ion-list>
+  </div>
+  <ion-item-divider>
+    <ion-title>Thông tin chi tiết</ion-title>
+  </ion-item-divider>
+  <div id="content-detail">
+    <ion-list>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Tiêu đề</ion-label>
+          <p>Cho thuê chung cư Sky 9</p>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Mô tả</ion-label>
+          <p>Đầy đủ nội thất, đi lại tiện lợi</p>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+            <ion-label class="custom-label">Giá</ion-label>
+              <p>7.500.000 VNĐ</p>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Diện tích</ion-label>
+            <p>62m2</p>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Loại hình</ion-label>
+          <p>Chung cư</p>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Nội thất</ion-label>
+          <p>Tủ lạnh, máy giặt, tủ quần áo, 2 máy điều hoà</p>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Số phòng ngủ</ion-label>
+          <p>2</p>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Số phòng vệ sinh</ion-label>
+          <p>2</p>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Tầng số</ion-label>
+          <p>15</p>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Phòng số</ion-label>
+          <p>1521</p>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Hướng cửa chính</ion-label>
+          <p>Đông Nam</p>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+            <ion-label class="custom-label">Tiền đặt cọc</ion-label>
+              <p>7.500.000 VNĐ</p>
+        </ion-col>
+      </ion-item>
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Giấy tờ pháp lý</ion-label>
+          <p>Đã có sổ đỏ/sổ hồng</p>
+        </ion-col>
+      </ion-item>
+      <!--<ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Tình trạng bất động sản</ion-label>
+          <ion-radio-group value="own">
+            <ion-item lines="none">
+              <ion-text>Đã bàn giao</ion-text>
+              <ion-radio slot="start" value="own"></ion-radio>
+            </ion-item>
+            <ion-item lines="none" disabled>
+              <ion-text>Đang bàn giao</ion-text>
+              <ion-radio slot="start"></ion-radio>
+            </ion-item>
+            <ion-item lines="none" disabled>
+              <ion-text>Chưa bàn giao</ion-text>
+              <ion-radio slot="start"></ion-radio>
+            </ion-item>
+          </ion-radio-group>
+        </ion-col>
+      </ion-item>-->
+      <ion-item>
+        <ion-col>
+          <ion-label class="custom-label">Hình ảnh</ion-label>
+          <div class="img-post">
+            <img src="../assets/imgs/h5-0.jpg">
+            <img src="../assets/imgs/h5-1.jpg">
+            <img src="../assets/imgs/h5-2.jpg">
+          </div>
+      </ion-col>
+        
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

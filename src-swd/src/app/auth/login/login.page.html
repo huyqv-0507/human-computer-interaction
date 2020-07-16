@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar color="theme-color">
+    <ion-title>Đăng nhập</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-label>
+        <ion-icon name="person-outline"></ion-icon>
+      </ion-label>
+      <ion-input type="text" placeholder="Tài khoản" [(ngModel)]="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>
+        <ion-icon name="lock-closed-outline" color="black"></ion-icon>
+      </ion-label>
+      <ion-input type="Password" placeholder="Mật khẩu" [(ngModel)]="password"></ion-input>
+    </ion-item>
+    <p *ngIf="notify">Tài khoản hoặc mật khẩu không đúng!</p>
+    <br />
+    <div class="btn-center-align">
+      <ion-button color="theme-color" shape="round" (click)="signIn()">Đăng nhập</ion-button>
+    </div>
+    <br />
+    <div>
+      <a [routerLink]="['/forgot']">Quên mật khẩu</a>
+      <a [routerLink]="['/register']">Đăng ký</a>
+    </div>
+  </ion-list>
+</ion-content>

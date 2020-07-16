@@ -1,0 +1,56 @@
+.custom-label {
+    font-size: 13px;
+    color: var(--ion-color-c);
+    margin-bottom: 7px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+ion-input {
+    padding-right: 0;
+}
+ion-select {
+  max-width: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  .set-full-width {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+}
+ion-item-divider {
+    --background: var(--ion-color-light-tint);
+}
+.img-post {
+    width: 100%;
+    height: 200px;
+    img {
+        width: 100px;
+        height: 80px;
+        margin-right: 13px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border-radius: 6px;
+    }
+    .img-add {
+        width: 110px;
+        height: 80px;
+        margin-right: 13px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        border: 2px solid var(--ion-color-c);
+        border-radius: 6px;
+        text-align: center;
+        ion-icon {
+            margin-top: 17%;
+            width: 50%;
+            height: 50%;
+        }
+    }
+}
+.house-post {
+    width: 100%;
+    text-align: center;
+    ion-icon {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}

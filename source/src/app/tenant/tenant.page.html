@@ -1,0 +1,27 @@
+<ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button tab="tenant-home">
+      <ion-icon name="home"></ion-icon>
+      <ion-label>Trang chủ</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button>
+      <ion-icon src="../assets/imgs/search.svg"></ion-icon>
+
+    </ion-tab-button>
+
+    <ion-tab-button tab="interest">
+      <ion-icon name="bookmark"></ion-icon>
+      <ion-label>Đã lưu</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed" class="tab-google" >
+    <ion-fab-button size="undefined" (click)="onNavGoogleMaps()">
+      <ion-tab-button>
+        <ion-icon src="../assets/imgs/search.svg" color="white-button"></ion-icon>
+        <ion-label color="white-button">Gần đây</ion-label>
+      </ion-tab-button>
+        
+    </ion-fab-button>
+  </ion-fab>
+</ion-tabs>

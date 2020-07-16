@@ -1,0 +1,25 @@
+<ion-header translucent="true">
+  <ion-toolbar color="theme-color">
+    <ion-back-button slot="start" color="white-button"></ion-back-button>
+    <ion-label color="white-button">Gần bạn</ion-label>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div id="map">
+    <div id="popup-info" [ngStyle]="{'display': isShowDetail ? 'block' : 'none'}"  (click)="openModal()">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="4" >
+            <img src={{housesList[0].img[0]}}>
+          </ion-col>
+          <ion-col size="8" class="col-detail" class="ion-align-items-start">
+            <p class="detail"><ion-text><strong>{{housesList[0].title}}</strong></ion-text></p>
+            <p class="detail"><ion-text color="danger">{{housesList[0].price}}</ion-text></p>
+            <p class="detail"><ion-text color="medium"><i>{{housesList[0].address}}</i></ion-text></p>
+            <p class="detail"><ion-text>Khoảng cách: {{distancepopup}}</ion-text></p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>

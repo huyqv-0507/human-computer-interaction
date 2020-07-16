@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar color="theme-color">
+    <ion-back-button color="white-button"></ion-back-button>
+    <ion-title>Quên mật khẩu</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item id="head">
+      <ion-input type="text" placeholder="Tên tài khoản" [(ngModel)]="username"></ion-input>
+      <ion-note>{{usernameErr}}</ion-note>
+    </ion-item>
+    <!-- <ion-item>
+      <ion-input type="password" placeholder="Mật khẩu mới" [(ngModel)]="password"></ion-input>
+      <ion-note>{{passwordErr}}</ion-note>
+    </ion-item> -->
+    <ion-item>
+      <ion-input type="number" placeholder="Số điện thoại" [(ngModel)]="phone"></ion-input>
+      <ion-note>{{phoneErr}}</ion-note>
+    </ion-item>
+    <br />
+    <div class="btn-center-align">
+      <ion-button shape="round" color="theme-color" (click)="send()">Gửi mã</ion-button>
+      <!-- <ion-button shape="round" color="theme-color" (click)="checkForgot()">Lấy lại mật khẩu</ion-button> -->
+    </div>
+  </ion-list>
+</ion-content>
